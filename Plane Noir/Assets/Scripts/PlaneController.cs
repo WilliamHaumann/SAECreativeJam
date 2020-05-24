@@ -13,7 +13,7 @@ public class PlaneController : MonoBehaviour
     public Rigidbody tail;
     public Rigidbody hip;
 
-    public Vector3 forceTest;
+    public Transform explosionPos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,9 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            sideHoleExplosion(forceTest);
+            sideHoleExplosion(1000, 5);
         }
 
     }
@@ -43,9 +43,13 @@ public class PlaneController : MonoBehaviour
     {
         LeanTween.rotateZ(plane.gameObject, pitchValue, pitchTime);
     }
-    public void sideHoleExplosion(Vector3 force)
+    public void sideHoleExplosion(float force, float explosionRadius)
     {
-        sidehole.AddForce(force);
         sidehole.constraints = RigidbodyConstraints.None;
+        sidehole.AddExplosionForce(force,);
+    }
+    public void noseExplosion(Vector3 force)
+    {
+        
     }
 }
