@@ -15,9 +15,6 @@ public class PlaneController : MonoBehaviour
 
     public Transform explosionPos;
 
-    public float force;
-    public float explosionRadius;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +24,22 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            roll(40, 5);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            roll(-40, 5);
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Invoke("sideHoleExplosion",0);
+            Pitch(40, 5);
         }
-
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Pitch(-40, 5);
+        }
     }
 
     public void roll(float rollValue, float rollTime)
@@ -42,13 +50,14 @@ public class PlaneController : MonoBehaviour
     {
         LeanTween.rotateZ(plane.gameObject, pitchValue, pitchTime);
     }
-    public void sideHoleExplosion()
+    public void sideHoleExplosion(float force)
     {
+        sidehole.AddForce(0, 0, force);
         sidehole.constraints = RigidbodyConstraints.None;
-        sidehole.AddExplosionForce(force, explosionPos.position, explosionRadius);
     }
-    public void noseExplosion(Vector3 force)
+    public void noseExplosion(float force)
     {
-        
+        nose.AddForce(0, force, force);
+        nose.constraints = RigidbodyConstraints.None;
     }
 }
