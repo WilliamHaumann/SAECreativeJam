@@ -211,7 +211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 78.71, y: 21, z: 0}
 --- !u!1 &1519819394
 GameObject:
@@ -436,7 +436,37 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090893921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090893922}
+  m_Layer: 0
+  m_Name: ExplosionPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090893922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090893921}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.57, y: 0, z: 2.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643870039653032381 stripped
 GameObject:
@@ -528,7 +558,9 @@ MonoBehaviour:
   neck: {fileID: 2512750108457557462}
   tail: {fileID: 643870039653032382}
   hip: {fileID: 7214549008971058586}
-  forceTest: {x: 0, y: 0, z: 0}
+  explosionPos: {fileID: 2090893922}
+  force: 10000
+  explosionRadius: 30
 --- !u!1 &6355370085188480622 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2590384399480303482, guid: 946b4aa38aed1d74fb8e138cde08e5a3,
@@ -624,7 +656,7 @@ PrefabInstance:
     - target: {fileID: 1908231300553506204, guid: 946b4aa38aed1d74fb8e138cde08e5a3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1908231300553506204, guid: 946b4aa38aed1d74fb8e138cde08e5a3,
         type: 3}
