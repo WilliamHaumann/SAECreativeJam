@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public List<GameObject> inventory = new List<GameObject>();
 
     public CharacterController controller;
+
+    public GameObject inventoryUI;
 
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -23,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Inputs();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -48,7 +53,20 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        
+
+
+    }
+    public void Inputs()
+    {
+        if (Input.GetKey(KeyCode.I))
+        {
+            inventoryUI.SetActive(true);
+        }
+        else
+        {
+            inventoryUI.SetActive(false);
+        }
+
 
     }
 }

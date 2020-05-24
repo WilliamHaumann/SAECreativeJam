@@ -8,10 +8,12 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
 
     public Transform playerBody;
+    public PlayerMovement player;
+    public InventoryHandler inventoryManager;
 
     private float xRotation = 0f;
 
-
+    public int inventorySpot = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class MouseLook : MonoBehaviour
 
 
         LeanTween.init(100);
-
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -41,17 +43,24 @@ public class MouseLook : MonoBehaviour
     }
     public void rayCaster()
     {
-
-        RaycastHit hit;
-        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-            if (hit.transform.tag == "Interactable")
+            RaycastHit hit;
+            if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5))
             {
-                Debug.Log("Interacted");
-                //Preform interactble logic
-                // Might check for special logic 
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+
+                if (hit.transform.tag == "Interactable")
+                {
+                    Debug.Log("Interacted");
+                    hit.transform.gameObject.SetActive(false);
+                    player.inventory.Add(hit.transform.gameObject);
+                    inventoryManager.activateImage(inventorySpot);
+                    inventorySpot++;
+                    //Preform interactble logic
+                    // Might check for special logic 
+                }
             }
         }
     }
