@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public List<GameObject> inventory = new List<GameObject>();
+    public List<string> inventory = new List<string>();
 
     public CharacterController controller;
 

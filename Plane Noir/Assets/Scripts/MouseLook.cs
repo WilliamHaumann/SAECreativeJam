@@ -51,15 +51,27 @@ public class MouseLook : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-                if (hit.transform.tag == "Interactable")
+                if (hit.transform.tag == "Key")
                 {
                     Debug.Log("Interacted");
                     hit.transform.gameObject.SetActive(false);
-                    player.inventory.Add(hit.transform.gameObject);
+                    player.inventory.Add(hit.transform.gameObject.name);
                     inventoryManager.activateImage(inventorySpot);
                     inventorySpot++;
                     //Preform interactble logic
                     // Might check for special logic 
+                }
+                else if (hit.transform.tag == "Lock")
+                {
+
+                    Lock targetLock = hit.transform.gameObject.GetComponent<Lock>();
+
+                    if (player.inventory.Contains(targetLock.Key))
+                    {
+                        targetLock.lockEvent.Invoke();
+                    }
+
+              
                 }
             }
         }
