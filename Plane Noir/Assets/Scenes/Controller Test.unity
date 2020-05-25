@@ -2504,21 +2504,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af8c708f0f720714bac92ee00e58c849, type: 2}
-    - target: {fileID: 8937056972147694484, guid: 53ae75edad597c247b9b77ea35ef11eb,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1693172625}
-    - target: {fileID: 8937056972147694484, guid: 53ae75edad597c247b9b77ea35ef11eb,
-        type: 3}
-      propertyPath: inventoryManager
-      value: 
-      objectReference: {fileID: 1160643293}
-    - target: {fileID: 8937056972617896802, guid: 53ae75edad597c247b9b77ea35ef11eb,
-        type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 1160643291}
     - target: {fileID: 8937056972617896803, guid: 53ae75edad597c247b9b77ea35ef11eb,
         type: 3}
       propertyPath: m_LocalPosition.x
