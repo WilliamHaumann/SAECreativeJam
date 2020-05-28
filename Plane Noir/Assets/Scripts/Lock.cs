@@ -17,5 +17,5 @@ public class Lock : MonoBehaviour
     {
         
     }
-    // make functions here for the events you want to have
+    // make functions here for the events you want to have    
 }

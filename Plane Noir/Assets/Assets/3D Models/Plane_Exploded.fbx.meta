@@ -120,7 +120,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 2.7
+    globalScale: 0.027
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
