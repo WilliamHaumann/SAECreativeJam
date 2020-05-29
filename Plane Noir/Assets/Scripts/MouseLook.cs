@@ -15,12 +15,16 @@ public class MouseLook : MonoBehaviour
 
     public int inventorySpot = 1;
 
+    DialougeHandler dialougeHandler;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
 
 
-        LeanTween.init(100);
+        LeanTween.init(10000);
         Cursor.lockState = CursorLockMode.Locked;
 
     }
@@ -43,12 +47,21 @@ public class MouseLook : MonoBehaviour
     }
     public void rayCaster()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
 
-            RaycastHit hit;
-            if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5))
+
+
+        RaycastHit hit;
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5))
+        {
+            if (hit.transform.name == "Bomb")
             {
+
+                dialougeHandler.playAudioClip(2);
+
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
                 if (hit.transform.tag == "Key")
@@ -57,13 +70,13 @@ public class MouseLook : MonoBehaviour
                     Key currentKey = hit.transform.gameObject.GetComponent<Key>();
 
                     Debug.Log("Interacted");
+
                     hit.transform.gameObject.SetActive(false);
                     player.inventory.Add(hit.transform.gameObject.name);
-                    inventoryManager.activateImage(inventorySpot);
-                    inventoryManager.inventoryImage[inventorySpot].sprite = currentKey.inventorySprite;
-                    inventorySpot++;
-                    //Preform interactble logic
-                    // Might check for special logic 
+                    int arrayId = player.inventory.IndexOf(hit.transform.gameObject.name);
+                    inventoryManager.activateImage(arrayId);
+                    inventoryManager.inventoryImage[arrayId].sprite = currentKey.inventorySprite;
+                    
                 }
                 else if (hit.transform.tag == "Lock")
                 {
@@ -77,10 +90,23 @@ public class MouseLook : MonoBehaviour
                         inventoryManager.deactivateImage(arrayId);
                         targetLock.lockEvent.Invoke();
                     }
+                }
+                else if (hit.transform.name == "Bomb")
+                {
 
+                    Lock targetLock = hit.transform.gameObject.GetComponent<Lock>();
+                    if (player.inventory.Contains("Bomb1") && player.inventory.Contains("Bomb2") && player.inventory.Contains("Bomb3"))
+                    {
 
+                        targetLock.AddToBombPieceCount();
+                    }
+                    else
+                    {
+                        dialougeHandler.playAudioClip(2); // add clip incase they don't have all peices
+                    }
                 }
             }
+
         }
     }
 }

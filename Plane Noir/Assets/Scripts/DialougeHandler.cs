@@ -15,6 +15,7 @@ public class DialougeHandler : MonoBehaviour
     }
     public void playAudioClip(int clipId)
     {
+        
         dialogueSource.PlayOneShot(AudioClipArray[clipId]);
     }
 }

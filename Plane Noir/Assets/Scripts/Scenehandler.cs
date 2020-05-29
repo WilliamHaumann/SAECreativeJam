@@ -14,6 +14,7 @@ public class Scenehandler : MonoBehaviour
     public float fadeTime;
     public bool switchScene;
 
+    DialougeHandler dialougeHandler;
 
     private void Start()
     {
@@ -26,23 +27,16 @@ public class Scenehandler : MonoBehaviour
     }
     public void fadeOut(float fadetime)
     {
-        if (switchScene)
-        {
 
+        if (!dialougeHandler.dialogueSource.isPlaying)
+        {
             LeanTween.alphaCanvas(fadeCanvas, 1, fadetime).setOnComplete(() =>
             {
                 canvasActivator();
                 loadScene("GameScene");
             });
         }
-        else
-        {
-            LeanTween.alphaCanvas(fadeCanvas, 1, fadetime).setOnComplete(() =>
-            {
-                canvasActivator();
-
-            });
-        }
+       
     }
     public void canvasActivator()
     {

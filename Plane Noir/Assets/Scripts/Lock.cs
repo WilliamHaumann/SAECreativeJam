@@ -22,7 +22,7 @@ public class Lock : MonoBehaviour
         //sceneChanger = GetComponent<Scenehandler>();
     }
 
-  
+
     // make functions here for the events you want to have    
     public void Destroy()
     {
@@ -31,11 +31,9 @@ public class Lock : MonoBehaviour
 
     public void AddToBombPieceCount()
     {
-        bombPieces++;
-        if(bombPieces >= maxPieces)
-        {
-            Debug.Log("I have all my pieces");
-            sceneChanger.loadScene("Scene 2");
-        }
+
+        Debug.Log("I have all my pieces");
+        sceneChanger.loadScene("Scene 2");
+
     }
 }
