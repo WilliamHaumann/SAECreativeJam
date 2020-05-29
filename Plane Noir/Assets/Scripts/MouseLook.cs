@@ -53,10 +53,14 @@ public class MouseLook : MonoBehaviour
 
                 if (hit.transform.tag == "Key")
                 {
+
+                    Key currentKey = hit.transform.gameObject.GetComponent<Key>();
+
                     Debug.Log("Interacted");
                     hit.transform.gameObject.SetActive(false);
                     player.inventory.Add(hit.transform.gameObject.name);
                     inventoryManager.activateImage(inventorySpot);
+                    inventoryManager.inventoryImage[inventorySpot].sprite = currentKey.inventorySprite;
                     inventorySpot++;
                     //Preform interactble logic
                     // Might check for special logic 
@@ -68,10 +72,13 @@ public class MouseLook : MonoBehaviour
 
                     if (player.inventory.Contains(targetLock.Key))
                     {
+                        int arrayId = player.inventory.IndexOf(targetLock.Key);
+                        player.inventory.Remove(targetLock.Key);
+                        inventoryManager.deactivateImage(arrayId);
                         targetLock.lockEvent.Invoke();
                     }
 
-              
+
                 }
             }
         }

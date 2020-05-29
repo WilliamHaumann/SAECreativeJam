@@ -23,4 +23,8 @@ public class InventoryHandler : MonoBehaviour
     {
         inventoryImage[arrayId].gameObject.SetActive(true);
     }
+    public void deactivateImage(int arrayId)
+    {
+        inventoryImage[arrayId].gameObject.SetActive(false);
+    }
 }
