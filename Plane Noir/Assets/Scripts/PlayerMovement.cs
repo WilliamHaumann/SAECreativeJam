@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+
+    public Image crosshair;
 
     Vector3 velocity;
 
@@ -61,10 +64,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.I))
         {
             inventoryUI.SetActive(true);
+            crosshair.gameObject.SetActive(false);
         }
         else
         {
             inventoryUI.SetActive(false);
+            crosshair.gameObject.SetActive(true);
         }
 
 

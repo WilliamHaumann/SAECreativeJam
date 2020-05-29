@@ -13,12 +13,16 @@ public class Lock : MonoBehaviour
     public int bombPieces = 0;
     public int maxPieces = 3;
 
+    public Scenehandler sceneChanger;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //sceneChanger = GetComponent<Scenehandler>();
     }
+
+  
     // make functions here for the events you want to have    
     public void Destroy()
     {
@@ -31,6 +35,7 @@ public class Lock : MonoBehaviour
         if(bombPieces >= maxPieces)
         {
             Debug.Log("I have all my pieces");
+            sceneChanger.loadScene("Scene 2");
         }
     }
 }
