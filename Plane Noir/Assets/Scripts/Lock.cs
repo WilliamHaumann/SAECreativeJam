@@ -35,8 +35,18 @@ public class Lock : MonoBehaviour
 
         Debug.Log("I have all my pieces");
         dialougeHandler.playAudioClip(4);
-        dialougeHandler.clipIsPlaying = true;
-        sceneHandler.switchScene = true;
+        Invoke("switchToScene2", dialougeHandler.AudioClipArray[4].length);
+
+    }
+    public void switchToScene2()
+    {
+        if (!dialougeHandler.dialogueSource.isPlaying)
+        {
+            dialougeHandler.playAudioClip(5);
+            dialougeHandler.clipIsPlaying = true;
+            sceneHandler.switchScene = true;
+
+        }
 
     }
 }

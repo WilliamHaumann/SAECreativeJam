@@ -23,7 +23,11 @@ public class DialougeHandler : MonoBehaviour
     }
     public void playAudioClip(int clipId)
     {
+        if (!clipIsPlaying)
+        {
 
-        dialogueSource.PlayOneShot(AudioClipArray[clipId]);
+            dialogueSource.PlayOneShot(AudioClipArray[clipId]);
+
+        }
     }
 }

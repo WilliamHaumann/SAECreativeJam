@@ -17,6 +17,9 @@ public class MouseLook : MonoBehaviour
 
     public DialougeHandler dialougeHandler;
 
+    private bool seenBomb = false;
+
+
 
 
     // Start is called before the first frame update
@@ -59,9 +62,13 @@ public class MouseLook : MonoBehaviour
             #region
             if (hit.transform.name == "Bomb")
             {
+                if (!seenBomb)
+                {
 
-               // dialougeHandler.playAudioClip(2);
+                    dialougeHandler.playAudioClip(2);
+                    seenBomb = true;
 
+                }
             }
 
             #endregion
