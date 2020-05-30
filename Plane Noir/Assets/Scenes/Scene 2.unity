@@ -2772,6 +2772,7 @@ MonoBehaviour:
   Key: Toolkit
   sceneHandler: {fileID: 466978512}
   dialougeHandler: {fileID: 800624127}
+  mouseScript: {fileID: 0}
 --- !u!1001 &1380963887
 PrefabInstance:
   m_ObjectHideFlags: 0
