@@ -40,6 +40,7 @@ public class Scenehandler : MonoBehaviour
     public void fadeIn(float fadetime)
     {
         LeanTween.alphaCanvas(fadeCanvas, 0, fadeTime).setOnComplete(canvasActivator);
+        dialougeHandler.playAudioClip(0);
     }
     public void fadeOut(float fadetime)
     {

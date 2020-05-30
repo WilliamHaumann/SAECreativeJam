@@ -3324,6 +3324,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5d0d2a780397779428d13c48abc63c73, type: 3}
   - {fileID: 8300000, guid: a9a16645e4f97dd4eada8436d9203a11, type: 3}
   - {fileID: 8300000, guid: d9ad2a909b1cb8045acc49124eca56fb, type: 3}
+  - {fileID: 8300000, guid: 67acc08a6f7154f43a688aa55b42a6fb, type: 3}
+  VFXSounds:
+  - {fileID: 8300000, guid: 12f6ddf3833440647ac3874860c6c88d, type: 3}
   dialogueSource: {fileID: 695662944}
   clipIsPlaying: 0
 --- !u!4 &1912511941

@@ -6,6 +6,7 @@ public class DialougeHandler : MonoBehaviour
 {
     public string[] DialogueArray;
     public AudioClip[] AudioClipArray;
+    public AudioClip[] VFXSounds;
     public AudioSource dialogueSource;
 
     public bool clipIsPlaying;
@@ -29,5 +30,9 @@ public class DialougeHandler : MonoBehaviour
             dialogueSource.PlayOneShot(AudioClipArray[clipId]);
 
         }
+    }
+    public void playVFXSound(int clipId)
+    {
+           dialogueSource.PlayOneShot(VFXSounds[clipId]);
     }
 }

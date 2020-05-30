@@ -18,6 +18,7 @@ public class MouseLook : MonoBehaviour
     public DialougeHandler dialougeHandler;
 
     private bool seenBomb = false;
+    private bool firstBombPiece = false;
 
 
 
@@ -88,8 +89,12 @@ public class MouseLook : MonoBehaviour
 
                 if (hit.transform.tag == "Key")
                 {
-
-
+                    dialougeHandler.playVFXSound(0);
+                    if (!firstBombPiece)
+                    {
+                        dialougeHandler.playAudioClip(3);
+                        firstBombPiece = true;
+                    }
                     hit.transform.gameObject.SetActive(false);
                     player.inventory.Add(hit.transform.gameObject.name);
                     int arrayId = player.inventory.IndexOf(hit.transform.gameObject.name);
@@ -118,7 +123,7 @@ public class MouseLook : MonoBehaviour
                     }
                     else
                     {
-                        dialougeHandler.playAudioClip(2); // add clip incase they don't have all peices
+                        dialougeHandler.playAudioClip(6); // add clip incase they don't have all peices
                     }
                 }
             }
