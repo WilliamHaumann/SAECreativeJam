@@ -48,40 +48,40 @@ public class MouseLook : MonoBehaviour
     public void rayCaster()
     {
 
-
-
         RaycastHit hit;
         if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5))
         {
+
+            Lock targetLock = hit.transform.gameObject.GetComponent<Lock>();
+            Key currentKey = hit.transform.gameObject.GetComponent<Key>();
+
+            //Continues Raycast
+            #region
             if (hit.transform.name == "Bomb")
             {
 
                 dialougeHandler.playAudioClip(2);
 
             }
+
+            #endregion
+            // Mouse klick interactions
             if (Input.GetKey(KeyCode.Mouse0))
             {
-
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
                 if (hit.transform.tag == "Key")
                 {
 
-                    Key currentKey = hit.transform.gameObject.GetComponent<Key>();
-
-                    Debug.Log("Interacted");
 
                     hit.transform.gameObject.SetActive(false);
                     player.inventory.Add(hit.transform.gameObject.name);
                     int arrayId = player.inventory.IndexOf(hit.transform.gameObject.name);
                     inventoryManager.activateImage(arrayId);
                     inventoryManager.inventoryImage[arrayId].sprite = currentKey.inventorySprite;
-                    
+
                 }
                 else if (hit.transform.tag == "Lock")
                 {
-
-                    Lock targetLock = hit.transform.gameObject.GetComponent<Lock>();
 
                     if (player.inventory.Contains(targetLock.Key))
                     {
@@ -94,7 +94,6 @@ public class MouseLook : MonoBehaviour
                 else if (hit.transform.name == "Bomb")
                 {
 
-                    Lock targetLock = hit.transform.gameObject.GetComponent<Lock>();
                     if (player.inventory.Contains("Bomb1") && player.inventory.Contains("Bomb2") && player.inventory.Contains("Bomb3"))
                     {
 
@@ -106,7 +105,6 @@ public class MouseLook : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 }
