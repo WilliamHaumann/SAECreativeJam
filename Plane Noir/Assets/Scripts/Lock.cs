@@ -13,7 +13,8 @@ public class Lock : MonoBehaviour
     public int bombPieces = 0;
     public int maxPieces = 3;
 
-    public Scenehandler sceneChanger;
+    public Scenehandler sceneHandler;
+    public DialougeHandler dialougeHandler;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,9 @@ public class Lock : MonoBehaviour
     {
 
         Debug.Log("I have all my pieces");
-        sceneChanger.loadScene("Scene 2");
+        dialougeHandler.playAudioClip(4);
+        dialougeHandler.clipIsPlaying = true;
+        sceneHandler.switchScene = true;
 
     }
 }

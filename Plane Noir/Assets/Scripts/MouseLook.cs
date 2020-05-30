@@ -15,7 +15,7 @@ public class MouseLook : MonoBehaviour
 
     public int inventorySpot = 1;
 
-    DialougeHandler dialougeHandler;
+    public DialougeHandler dialougeHandler;
 
 
 
@@ -60,7 +60,7 @@ public class MouseLook : MonoBehaviour
             if (hit.transform.name == "Bomb")
             {
 
-                dialougeHandler.playAudioClip(2);
+               // dialougeHandler.playAudioClip(2);
 
             }
 
@@ -68,6 +68,16 @@ public class MouseLook : MonoBehaviour
             // Mouse klick interactions
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                if (hit.transform.tag == "Silo")
+                {
+
+                    if (hit.transform.name == "David")
+                    {
+
+
+                    }
+
+                }
 
                 if (hit.transform.tag == "Key")
                 {
