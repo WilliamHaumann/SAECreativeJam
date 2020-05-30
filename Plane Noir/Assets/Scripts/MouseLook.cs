@@ -18,6 +18,9 @@ public class MouseLook : MonoBehaviour
     public DialougeHandler dialougeHandler;
 
     private bool seenBomb = false;
+    private bool seenBomb2 = false;
+    public bool scene2 = false;
+    public bool scene3 = false;
     private bool firstBombPiece = false;
 
 
@@ -65,10 +68,17 @@ public class MouseLook : MonoBehaviour
             {
                 if (!seenBomb)
                 {
-
                     dialougeHandler.playAudioClip(2);
                     seenBomb = true;
+                }
+            }
 
+            if(hit.transform.name == "Bomb2")
+            {
+                if (!seenBomb2)
+                {
+                    dialougeHandler.playAudioClip(1);
+                    seenBomb2 = true;
                 }
             }
 
@@ -90,11 +100,16 @@ public class MouseLook : MonoBehaviour
                 if (hit.transform.tag == "Key")
                 {
                     dialougeHandler.playVFXSound(0);
-                    if (!firstBombPiece)
+
+                    if (!scene2)
                     {
-                        dialougeHandler.playAudioClip(3);
-                        firstBombPiece = true;
+                        if (!firstBombPiece)
+                        {
+                            dialougeHandler.playAudioClip(3);
+                            firstBombPiece = true;
+                        }
                     }
+                    
                     hit.transform.gameObject.SetActive(false);
                     player.inventory.Add(hit.transform.gameObject.name);
                     int arrayId = player.inventory.IndexOf(hit.transform.gameObject.name);

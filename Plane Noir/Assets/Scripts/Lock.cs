@@ -10,11 +10,14 @@ public class Lock : MonoBehaviour
 
     public string Key; // Name the gameobject you want to unlock this item
 
-    public int bombPieces = 0;
-    public int maxPieces = 3;
+    private int bombPieces = 0;
+    private int maxPieces = 3;
+
+    private bool hasToolkit = false;
 
     public Scenehandler sceneHandler;
     public DialougeHandler dialougeHandler;
+    public MouseLook mouseScript;
 
 
     // Start is called before the first frame update
@@ -46,6 +49,25 @@ public class Lock : MonoBehaviour
             dialougeHandler.clipIsPlaying = true;
             sceneHandler.switchScene = true;
 
+            mouseScript.scene2 = true;
+        }
+
+    }
+
+    public void CheckForToolkit()
+    {
+        dialougeHandler.playAudioClip(3);
+        Invoke("switchToScene3", dialougeHandler.AudioClipArray[3].length);
+    }
+    public void switchToScene3()
+    {
+        if (!dialougeHandler.dialogueSource.isPlaying)
+        {
+            dialougeHandler.playAudioClip(4);
+            dialougeHandler.clipIsPlaying = true;
+            sceneHandler.switchScene = true;
+
+            mouseScript.scene3 = true;
         }
 
     }
