@@ -68,6 +68,16 @@ public class MouseLook : MonoBehaviour
             // Mouse klick interactions
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                if (hit.transform.tag == "Silo")
+                {
+
+                    if (hit.transform.name == "David")
+                    {
+
+
+                    }
+
+                }
 
                 if (hit.transform.tag == "Key")
                 {
