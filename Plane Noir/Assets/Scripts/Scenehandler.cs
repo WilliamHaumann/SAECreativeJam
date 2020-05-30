@@ -14,16 +14,32 @@ public class Scenehandler : MonoBehaviour
     public float fadeTime;
     public bool switchScene;
 
-    DialougeHandler dialougeHandler;
+    public DialougeHandler dialougeHandler;
+
+    public string switchToScene;
 
     private void Start()
     {
         fadeIn(fadeTime);
     }
+    private void Update()
+    {
+        if (switchScene)
+        {
+            LeanTween.alphaCanvas(fadeCanvas, 1, fadeTime).setOnComplete(() =>
+            {
+            });
+            if (!dialougeHandler.clipIsPlaying)
+            {
+                SwitchScene();
+            }
+
+        }
+    }
 
     public void fadeIn(float fadetime)
     {
-        LeanTween.alphaCanvas(fadeCanvas, 0, fadetime).setOnComplete(canvasActivator);
+        LeanTween.alphaCanvas(fadeCanvas, 0, fadeTime).setOnComplete(canvasActivator);
     }
     public void fadeOut(float fadetime)
     {
@@ -36,7 +52,7 @@ public class Scenehandler : MonoBehaviour
                 loadScene("GameScene");
             });
         }
-       
+
     }
     public void canvasActivator()
     {
@@ -54,5 +70,12 @@ public class Scenehandler : MonoBehaviour
     {
         Debug.Log("LoadingScene");
         SceneManager.LoadScene(sceneToLoad);
+    }
+    public void SwitchScene()
+    {
+
+        SceneManager.LoadScene(switchToScene);
+
+
     }
 }

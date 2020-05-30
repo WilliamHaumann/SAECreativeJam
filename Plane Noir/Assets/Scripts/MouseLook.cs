@@ -15,7 +15,7 @@ public class MouseLook : MonoBehaviour
 
     public int inventorySpot = 1;
 
-    DialougeHandler dialougeHandler;
+    public DialougeHandler dialougeHandler;
 
 
 
@@ -60,7 +60,7 @@ public class MouseLook : MonoBehaviour
             if (hit.transform.name == "Bomb")
             {
 
-                dialougeHandler.playAudioClip(2);
+               // dialougeHandler.playAudioClip(2);
 
             }
 

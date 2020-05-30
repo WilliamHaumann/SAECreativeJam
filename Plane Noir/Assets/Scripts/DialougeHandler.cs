@@ -8,6 +8,14 @@ public class DialougeHandler : MonoBehaviour
     public AudioClip[] AudioClipArray;
     public AudioSource dialogueSource;
 
+    public bool clipIsPlaying;
+
+
+
+    private void Update()
+    {
+        clipIsPlaying = dialogueSource.isPlaying;
+    }
 
     public void playDialouge(int DialogueId)
     {
@@ -15,7 +23,7 @@ public class DialougeHandler : MonoBehaviour
     }
     public void playAudioClip(int clipId)
     {
-        
+
         dialogueSource.PlayOneShot(AudioClipArray[clipId]);
     }
 }

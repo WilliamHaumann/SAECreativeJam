@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+   
     public List<string> inventory = new List<string>();
 
     public CharacterController controller;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-           velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
 
@@ -71,7 +71,5 @@ public class PlayerMovement : MonoBehaviour
             inventoryUI.SetActive(false);
             crosshair.gameObject.SetActive(true);
         }
-
-
     }
 }
