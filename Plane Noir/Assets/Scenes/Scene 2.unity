@@ -606,8 +606,8 @@ MonoBehaviour:
   fadeCanvas: {fileID: 784335745}
   fadeTime: 5
   switchScene: 0
-  dialougeHandler: {fileID: 0}
-  switchToScene: 
+  dialougeHandler: {fileID: 800624127}
+  switchToScene: Scene 3
 --- !u!4 &466978513
 Transform:
   m_ObjectHideFlags: 0
@@ -2770,9 +2770,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Key: Toolkit
+  siloCount: 0
+  maxSilos: 4
   sceneHandler: {fileID: 466978512}
   dialougeHandler: {fileID: 800624127}
-  mouseScript: {fileID: 0}
+  mouseScript: {fileID: 1850480309}
+  audioClipIndex: 0
 --- !u!1001 &1380963887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3781,6 +3784,18 @@ Transform:
   m_Father: {fileID: 1671947168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 106.67901, z: 0}
+--- !u!114 &1850480309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8937056972147694484, guid: 53ae75edad597c247b9b77ea35ef11eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 790709716}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a61bd2ee870084db3f33faccdea244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907189537
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,10 +61,11 @@ public class Lock : MonoBehaviour
     public void CheckForToolkit()
     {
         dialougeHandler.playAudioClip(3);
-        Invoke("switchToScene3", dialougeHandler.AudioClipArray[3].length);
+        Invoke("switchToScene3", dialougeHandler.AudioClipArray[3].length + 5);
     }
     public void switchToScene3()
     {
+        Debug.Log("Test");
         if (!dialougeHandler.dialogueSource.isPlaying)
         {
             dialougeHandler.playAudioClip(4);
